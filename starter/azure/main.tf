@@ -41,6 +41,24 @@ resource "azurerm_storage_account" "hussainudacitystorage" {
 
 
 
+resource "azurerm_mssql_server" "sqldb" {
+  name                         = "udacity-hussain-azure-sql-server"
+  resource_group_name          = data.azurerm_resource_group.udacity.name
+  location                     = data.azurerm_resource_group.udacity.location
+  version                      = "12.0"
+  administrator_login          = "4dm1n157r470r"
+  administrator_login_password = "4-v3ry-53cr37-p455w0rd"
+}
+
+data "azurerm_mssql_database" "example" {
+  name      = "udacity-hussain-azure-sql"
+  server_id = azurerm_mssql_server.sqldb.id
+}
+
+output "database_id" {
+  value = data.azurerm_mssql_database.example.id
+}
+
 
 
 
