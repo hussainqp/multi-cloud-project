@@ -55,8 +55,8 @@ resource "azurerm_mssql_server" "sqlserver" {
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-resource "azurerm_mssql_database" "mssql_database" {
-  name           = "mssql_database"
+resource "azurerm_mssql_database" "udacity-hussain-azure-sql-db" {
+  name           = "udacity-hussain-azure-sql-db"
   server_id      = azurerm_mssql_server.sqlserver.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
