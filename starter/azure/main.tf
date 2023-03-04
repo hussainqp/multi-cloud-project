@@ -50,13 +50,19 @@ resource "azurerm_mssql_server" "sqldb" {
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-data "azurerm_mssql_database" "example" {
-  name      = "udacity-hussain-azure-sql"
-  server_id = azurerm_mssql_server.sqldb.id
-}
+resource "azurerm_mssql_database" "hussainsqldb" {
+  name           = "udacity-hussain-azure-sql"
+  server_id      = azurerm_mssql_server.sqldb.id
+  collation      = "SQL_Latin1_General_CP1_CI_AS"
+  license_type   = "LicenseIncluded"
+  max_size_gb    = 150
+  read_scale     = true
+  sku_name       = "S0"
+  zone_redundant = true
 
-output "database_id" {
-  value = data.azurerm_mssql_database.example.id
+  tags = {
+    environment = "udacity"
+  }
 }
 
 
