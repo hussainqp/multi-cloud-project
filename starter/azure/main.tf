@@ -50,31 +50,6 @@ data "azurerm_mssql_server" "sqlserver" {
   resource_group_name = data.azurerm_resource_group.udacity.name
 }
 
-/*
-resource "azurerm_mssql_server" "sqlserver" {
-  name                         = "udacity-hussain-azure-sql"
-  resource_group_name          = data.azurerm_resource_group.udacity.name
-  location                     = data.azurerm_resource_group.udacity.location
-  version                      = "12.0"
-  administrator_login          = "4dm1n157r470r"
-  administrator_login_password = "4-v3ry-53cr37-p455w0rd"
-}
-
-resource "azurerm_mssql_database" "udacity-hussain-azure-sql-db" {
-  name           = "udacity-hussain-azure-sql-db"
-  server_id      = azurerm_mssql_server.sqlserver.id
-  collation      = "SQL_Latin1_General_CP1_CI_AS"
-  license_type   = "LicenseIncluded"
-  max_size_gb    = 150
-  read_scale     = true
-  sku_name       = "S0"
-  zone_redundant = true
-
-  tags = {
-    environment = "udacity"
-  }
-}
-*/
 
 
 
