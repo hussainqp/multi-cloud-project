@@ -31,8 +31,8 @@ resource "azurerm_container_group" "udacity" {
 
 ####### Your Additions Will Start Here ######
 
-resource "azurerm_storage_account" "azurestorageaccount" {
-  name                     = "azurestorageaccount"
+resource "azurerm_storage_account" "hussainudacitystorage" {
+  name                     = "hussainudacitystorage"
   resource_group_name      = data.azurerm_resource_group.udacity.name
   location                 = data.azurerm_resource_group.udacity.location
   account_tier             = "Standard"
@@ -87,8 +87,8 @@ resource "azurerm_windows_function_app" "function" {
   resource_group_name = data.azurerm_resource_group.udacity.name
   location            = data.azurerm_resource_group.udacity.location
 
-  storage_account_name       = azurerm_storage_account.azurestorageaccount.name
-  storage_account_access_key = azurerm_storage_account.azurestorageaccount.primary_access_key
+  storage_account_name       = azurerm_storage_account.hussainudacitystorage.name
+  storage_account_access_key = azurerm_storage_account.hussainudacitystorage.primary_access_key
   service_plan_id            = azurerm_service_plan.appserviceplan.id
 
   site_config {}
