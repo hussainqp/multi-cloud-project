@@ -76,16 +76,16 @@ resource "azurerm_mssql_database" "mssql_database" {
 
 resource "azurerm_service_plan" "appserviceplan" {
   name                = "app-service-plan"
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = data.azurerm_resource_group.udacity.name
+  location            = data.azurerm_resource_group.udacity.location
   os_type             = "Windows"
   sku_name            = "Y1"
 }
 
-resource "azurerm_windows_function_app" "example" {
+resource "azurerm_windows_function_app" "function" {
   name                = "udacity-hussain-azure-dotnet-app"
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = data.azurerm_resource_group.udacity.name
+  location            = data.azurerm_resource_group.udacity.location
 
   storage_account_name       = azurerm_storage_account.azurestorageaccount.name
   storage_account_access_key = azurerm_storage_account.azurestorageaccount.primary_access_key
