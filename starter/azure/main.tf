@@ -44,16 +44,6 @@ resource "azurerm_storage_account" "hussainudacitystorage" {
 
 
 
-
-data "azurerm_mssql_server" "sqlserver" {
-  name                = "udacity-hussain-azure-sql"
-  resource_group_name = data.azurerm_resource_group.udacity.name
-}
-
-
-
-
-
 resource "azurerm_service_plan" "appserviceplan" {
   name                = "app-service-plan"
   resource_group_name = data.azurerm_resource_group.udacity.name
