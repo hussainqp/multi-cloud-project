@@ -179,11 +179,11 @@ resource "aws_ecs_task_definition" "udacity_app" {
     "environment": [
       {
         "name": "AZURE_SQL",
-        "value": "udacity-tscotto-azure-sql"
+        "value": "udacity-hussain-azure-sql"
       },
       {
         "name": "AZURE_DOTNET_APP",
-        "value": "udacity-tscotto-azure-dotnet-app"
+        "value": "udacity-hussain-azure-dotnet-app"
       }
     ],
     "portMappings": [
@@ -204,3 +204,64 @@ variable "app_count" {
 
 ####### Your Additions Will Start Here ######
 
+resource "aws_s3_bucket" "bucket" {
+  bucket = "udacity-hussain-aws-s3-bucket"
+
+  tags = {
+    environment = "udacity"
+  }
+}
+
+resource "aws_s3_bucket_acl" "bucket_acl" {
+  bucket = aws_s3_bucket.bucket.id
+  acl    = "private"
+}
+
+
+
+
+
+
+
+resource "aws_dynamodb_table" "udacity-hussain-aws-dynamodb" {
+  name           = "udacity-hussain-aws-dynamodb"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 20
+  write_capacity = 20
+  hash_key       = "UserId"
+  range_key      = "GameTitle"
+
+  attribute {
+    name = "UserId"
+    type = "S"
+  }
+
+  attribute {
+    name = "GameTitle"
+    type = "S"
+  }
+
+  attribute {
+    name = "TopScore"
+    type = "N"
+  }
+
+  ttl {
+    attribute_name = "TimeToExist"
+    enabled        = false
+  }
+
+  global_secondary_index {
+    name               = "GameTitleIndex"
+    hash_key           = "GameTitle"
+    range_key          = "TopScore"
+    write_capacity     = 10
+    read_capacity      = 10
+    projection_type    = "INCLUDE"
+    non_key_attributes = ["UserId"]
+  }
+
+  tags = {
+    environment = "udacity"
+  }
+}
