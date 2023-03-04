@@ -45,10 +45,9 @@ resource "azurerm_storage_account" "hussainudacitystorage" {
 
 
 
-data "azurerm_mssql_server" "example" {
+data "azurerm_mssql_server" "sqlserver" {
   name                = "udacity-hussain-azure-sql"
   resource_group_name = data.azurerm_resource_group.udacity.name
-  location                     = data.azurerm_resource_group.udacity.location
 }
 
 /*
