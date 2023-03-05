@@ -42,7 +42,7 @@ resource "azurerm_storage_account" "hussainudacitystorage" {
 
 
 resource "azurerm_mssql_server" "sqldb" {
-  name                         = "udacity-hussain-azure-sql-server"
+  name                         = "udacity-hussain-azure-sql"
   resource_group_name          = data.azurerm_resource_group.udacity.name
   location                     = data.azurerm_resource_group.udacity.location
   version                      = "12.0"
@@ -51,7 +51,7 @@ resource "azurerm_mssql_server" "sqldb" {
 }
 
 resource "azurerm_mssql_database" "hussainsqldb" {
-  name           = "udacity-hussain-azure-sql"
+  name           = "udacity-hussain-azure-sql-db"
   server_id      = azurerm_mssql_server.sqldb.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
