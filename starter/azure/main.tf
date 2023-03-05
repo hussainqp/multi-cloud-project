@@ -56,7 +56,6 @@ resource "azurerm_mssql_database" "hussainsqldb" {
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
   max_size_gb    = 150
-  read_scale     = true
 
   tags = {
     environment = "udacity"
