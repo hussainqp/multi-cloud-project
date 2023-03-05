@@ -60,18 +60,7 @@ Your goal is to select a cloud provider for each of the 4 required services - SQ
 
 ### Instructions
 
-1. With the requirements in mind, your team decided to use AWS S3 due to full S3 API compatibility. The team decided on Azure SQL and a dotnet web app due to Microsoft being the creators of both those technologies. You have the highest compatibility and support from Microsoft with both SQL and dotnet. Your team also wants to use AWS DynamoDB. Do some research using search engines, docs, and pricing calculators from both AWS and Azure to justify why your team chose AWS DynamoDB over Azure's counterpart. Limit your response to less than 150 words. Spend no more than 30 mins on this part. Add your explanation to your README.md file in your final repo submission.
-
-AWS: DynamoDB
-Azure: Cosmos DB
-Azure Cosmos DB and Amazon DynamoDB are both fully managed, scalable, and highly available NoSQL databases.
-Both of them may sound similar, but difference starts coming in terms of pricing, scalability rules, primary db models etc.
-
-We have selected AWS Dynamodb as we do not have any prerequisite of having to use one particular type of query. Also, we already have two services in Azure. It is better to spread out resources in a multi cloud environment for better availability and price factors.
-And dynamodb is more performant and scalable along with easier integrations with AWS services. Also we don't need sql like querying, and graph dbms and wide column storage models in nosql database (which is provided in cosmos db).
-
-These might be a few reasons why we chose dynamodb over cosmos db.
-https://serverlesstalent.com/compare/azure-cosmos-db/dynamodb
+1.  With the requirements in mind, your team decided to use AWS S3 due to full S3 API compatibility. The team decided on Azure SQL and a dotnet web app due to Microsoft being the creators of both those technologies. You have the highest compatibility and support from Microsoft with both SQL and dotnet. Your team also wants to use AWS DynamoDB. Do some research using search engines, docs, and pricing calculators from both AWS and Azure to justify why your team chose AWS DynamoDB over Azure's counterpart. Limit your response to less than 150 words. Spend no more than 30 mins on this part. Add your explanation to your README.md file in your final repo submission.
 
 2.  Create a diagram based on your design for all 4 services.
 
@@ -172,3 +161,20 @@ In AWS you may only be able to run 1 or 2 exercises at a time. If you get an err
 ## License
 
 [License](LICENSE.txt)
+
+- Why we chose Amazon DynamoDB over Azure Cosmos DB?
+
+Azure Cosmos DB and Amazon DynamoDB are both fully managed, scalable, and highly available NoSQL databases.
+Both of them may sound similar, but difference starts coming in terms of pricing, scalability rules, primary db models etc.
+
+We have selected AWS Dynamodb as we do not have any prerequisite of having to use one particular type of query. Also, we already have two services in Azure. It is better to spread out resources in a multi cloud environment for better availability and price factors.
+And dynamodb is more performant and scalable along with easier integrations with AWS services. Also we don't need sql like querying, and graph dbms and wide column storage models in nosql database (which is provided in cosmos db).
+
+These might be a few reasons why we chose dynamodb over cosmos db.
+https://serverlesstalent.com/compare/azure-cosmos-db/dynamodb
+
+Issue with AWS app:
+Even if I update the env variable: AZURE_SQL with correct name, it does not reflect in the webapp running. It still picks tscott name.
+
+Need to check the image logic to make sure everything is fine there. If not, do let me know what have I done wrong for the name to not reflect properly.
+Thanks
